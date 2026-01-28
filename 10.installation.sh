@@ -10,7 +10,7 @@ exit 1
 fi
 
 echo "Installing Nginx"
-dnf install nginx -y
+dnf install nginxx -y
 
 if [ $? -ne 0 ] ;
 then
