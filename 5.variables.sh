@@ -7,4 +7,4 @@ echo "User name is $USER_NAME"
 echo "Please enter your password::"
 read -s PASSWD
 
-#echo "Password is:$PASSWD"
+echo "Password is:$PASSWD"
