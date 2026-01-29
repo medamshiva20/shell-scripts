@@ -27,7 +27,7 @@ then
   echo "Installing MySQL...FAILURE"
 exit1
 else
-  echo "Installing MySQL...SUCEESS"
+  echo "Installing MySQL...SUCCESS"
 fi
 
 dnf install nodejs -y
