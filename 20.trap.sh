@@ -14,20 +14,22 @@ Y="\e[33m"
 N="\e[0m"
 
 if [ $USERID -ne 0 ] ;
-then
-    echo -e "$R Please run this script with root user $N"|tee -a $LOG_FILE
-    exit1
+then 
+    echo -e "$R Please run this script with root user $N" | tee -a $LOG_FILE
+    exit 1
 fi
 
+mkdir -p $LOGS_DIR
 
 for package in $@
-do 
+do
     dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ] ;
-    then 
+    then
         echo "$package not installed, installing now"
         dnf install $package -y &>>$LOG_FILE
+        
     else
-        echo -e "$package already installed...$Y SKIPPING $N"
+        echo -e "$package already installed ...$Y SKIPPING $N"
     fi
 done
