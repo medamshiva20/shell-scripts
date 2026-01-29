@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USERID=$(id -u)
-LOGS_FOLDER="/varlog/shell-script"
+LOGS_FOLDER="/var/log/shell-script"
 LOG_FILE="$LOGS_FOLDER/$0.log"
 
 if [ $USERID -ne 0 ] ;
