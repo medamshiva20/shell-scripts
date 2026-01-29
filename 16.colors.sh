@@ -1,3 +1,8 @@
 #!/bin/bash 
 
-echo -e "\e[31m Hellowolrd,\e[32m I am learning shell"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+
+echo -e "$R Helloworld $N, $G I am learning shell $N"
