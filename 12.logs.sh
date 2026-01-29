@@ -6,7 +6,7 @@ LOG_FILE="$LOGS_FOLDER/$0.log"
 
 if [ $USERID -ne 0 ] ;
 then 
-    echo "Please run the script with root user"
+    echo "Please run the script with root user" | tee -a $LOG_FILE
     exit 1
 fi
 
@@ -15,10 +15,10 @@ mkdir -p $LOGS_FOLDER
 VALIDATE(){
 if [ $1 -ne 0 ] ;
 then
-    echo "$2...FAILURE"
+    echo "$2...FAILURE" | tee -a $LOG_FILE
     exit 1
 else
-    echo "$2...SUCCESS"
+    echo "$2...SUCCESS" | tee -a $LOG_FILE
 fi
 }
 
