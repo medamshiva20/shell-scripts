@@ -15,7 +15,7 @@ N="\e[0m"
 
 if [ $USERID -ne 0 ] ;
 then
-    echo "$R Please run this script with root error $N" | tee -a $LOG_FILE
+    echo -e "$R Please run this script with root user $N"|tee -a $LOG_FILE
     exit1
 fi
 
@@ -28,6 +28,6 @@ do
         echo "$package not installed, installing now"
         dnf install $package -y &>>$LOG_FILE
     else
-        echo "$package already installed...$Y SKIPPING $N"
+        echo -e "$package already installed...$Y SKIPPING $N"
     fi
 done
