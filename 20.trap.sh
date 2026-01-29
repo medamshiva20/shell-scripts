@@ -6,7 +6,7 @@ trap 'echo "There is an error in $LINENO,Command: $BASH_COMMAND"' ERR
 
 USERID=$(id -u)
 LOGS_DIR="/var/log/shell-script"
-LOG_FILE="$LOGS_DIR/$0.log
+LOG_FILE="$LOGS_DIR/$0.log"
 
 R="\e[31m"
 G="\e[32m"
