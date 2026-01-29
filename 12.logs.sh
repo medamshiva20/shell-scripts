@@ -22,11 +22,11 @@ else
 fi
 }
 
-dnf install nginx -y &>>$LOGS_FOLDER
+dnf install nginx -y &>>$LOG_FILE
 VALIDATE $? "Installing Nginx"
 
-dnf install mysql -y &>>$LOGS_FOLDER
+dnf install mysql -y &>>$LOG_FILE
 VALIDATE $? "Installing MySQL"
 
-dnf install nodejs -y &>>$LOGS_FOLDER
+dnf install nodejs -y &>>$LOG_FILE
 VALIDATE $? "Installing nodejs"
