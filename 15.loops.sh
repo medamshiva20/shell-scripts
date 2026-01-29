@@ -19,6 +19,7 @@ VALIDATE(){
         exit 1
     else
         echo "$2...SUCCESS" | tee -a $LOG_FILE
+    fi
 }
 
 
