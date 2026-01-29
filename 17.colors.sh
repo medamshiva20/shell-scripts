@@ -15,6 +15,8 @@ then
     exit 1
 fi
 
+mkdir -p /var/log/shell-script
+
 VALIDATE(){
     if [ $1 -ne 0 ] ;
     then 
