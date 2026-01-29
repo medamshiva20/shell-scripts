@@ -20,7 +20,7 @@ else
 echo "Installing Nginx...SUCCESS"
 fi
 
-dnf install mysql 
+dnf install mysql -y
 
 if [$? -ne 0];
 then
@@ -32,7 +32,7 @@ fi
 
 dnf install nodejs -y
 
-if[$? -ne 0];
+if [$? -ne 0];
 then
   echo "Installing nodejs...FAILURE"
   exit 1
