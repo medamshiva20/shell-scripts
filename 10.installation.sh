@@ -22,7 +22,7 @@ fi
 
 dnf install mysql -y
 
-if [$? -ne 0];
+if [ $? -ne 0 ] ;
 then
   echo "Installing MySQL...FAILURE"
 exit1
@@ -32,7 +32,7 @@ fi
 
 dnf install nodejs -y
 
-if [$? -ne 0];
+if [ $? -ne 0 ] ;
 then
   echo "Installing nodejs...FAILURE"
   exit 1
