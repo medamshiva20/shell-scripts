@@ -8,7 +8,7 @@
 #     ((count++))
 # done
 
-while IFS= -r line;
+while IFS= read -r line;
 do
     echo $line;
 done < 20.trap.sh
