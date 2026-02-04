@@ -9,6 +9,7 @@ LOGS_DIR=/home/ec2-user/app-logs
 LOGS_FILE=$LOGS_DIR/$0.log
 
 [ ! -d $LOGS_DIR ] ;
+
 then 
     echo "$LOGS_DIR does not exist"
     exit 1
