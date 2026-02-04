@@ -22,4 +22,4 @@ do
     echo "Deleting file $filepath"
     rm -f $filepath
     echo "Deleting file : $filepath"
-done<<<$FILE_TO_DELETE
+don <<< $FILES_TO_DELETE
