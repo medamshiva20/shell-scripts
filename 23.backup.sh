@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USERID=$(id -u)
-LOGS_DIR="/var/log/shell-script/"
+LOGS_DIR="/var/log/shell-script"
 LOG_FILE="$LOGS_DIR/$0.log"
 SOURCE_DIR=$1
 DESTINATION_DIR=$2
