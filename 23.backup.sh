@@ -3,6 +3,9 @@
 USERID=$(id -u)
 LOGS_DIR="/var/log/shell-script/"
 LOG_FILE="$LOGS_DIR/backup.log"
+SOURCE_DIR=$1
+DESTINATION_DIR=$2
+DAYS=${3:-14}  # 14 days is the default value, if the user not supplied
 
 R="\e[31m"
 G="\e[32m"
@@ -24,3 +27,16 @@ if [ $# -lt 2 ] ;
 then 
     USAGE
 fi
+
+if [ ! -d $SOURCE_DIR ] ;
+then
+    echo -e "$R Source Directory $SOURCE_DIR does not exist $N"
+    exit 1
+fi
+
+if [ ! -d $DESTINATION_DIR ] ;
+then 
+    echo -e "$R Destination directory $DESTINATION_DIR doesn not exist $N"
+    exit 1
+fi
+
