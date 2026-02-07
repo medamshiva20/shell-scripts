@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 LOGS_DIR="/var/log/shell-script/"
-LOG_FILE="$LOGS_DIR/backup.log"
+LOG_FILE="$LOGS_DIR/$0.log"
 SOURCE_DIR=$1
 DESTINATION_DIR=$2
 DAYS=${3:-14}  # 14 days is the default value, if the user not supplied
