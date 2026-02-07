@@ -18,6 +18,10 @@ then
     ecit 1
 fi
 
+log(){
+    echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $1" | tee -a $LOG_FILE
+}
+
 USAGE(){
     echo -e " $R USAGE:: sudo backup <SOURCE_DIR> <DEST_DIR> <DAYS>[default 14 days] $N"
     exit 1
@@ -40,3 +44,7 @@ then
     exit 1
 fi
 
+log "Backup started"
+log "Source Directory : $SOURCE_DIR"
+log "Destination Directory: $DESTINATION_DIR"
+log "Days: $DAYS"
