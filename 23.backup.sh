@@ -1,4 +1,10 @@
 #!/bin/bash
+#User should pass source_dir dest_dir,default is 14 days,but user can override
+#verify directory exist and root user too
+#find the files
+#archieve them and place into dest_dir 
+#Check archieve is success or not 
+#if success you can delete from source_dir
 
 USERID=$(id -u)
 LOGS_DIR="/var/log/shell-script"
@@ -11,6 +17,8 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+
+mkdir -p $LOGS_FOLDER
 
 if [ $USERID -ne 0 ] ;
 then 
@@ -54,4 +62,25 @@ log "Days: $DAYS"
 if [ -z $FILES ] ;
 then 
     log "No files to archive ... $Y Skipping $N"
+else
+    log "Files found to archieve: $FILES"
+    TIMESTAMP=$(date +%F-%H:%M:%S)
+    ZIP_FILE_NAME="$DESTINATION_DIR/app-logs-$TIMESTAMP.tar.gz"
+    echo "Archieve name:$ZIP_FILE_NAME"
+    find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS | tar -zcvf $ZIP_FILE_NAME
+
+    #check archieve success or not
+    if [ -f $ZIP_FILE_NAME ] ;
+        log "Archieval is ...$G SUCCESS $N"
+
+        while IFS= read -r filepath
+        do 
+            echo Deleting file: $filepath
+            rm -f $filepath
+            echo Deleted file: $filepath
+        done <<< $FILE
+    else
+        log "Archieval is ...$R FAILURE $N"
+        exit 1
+    fi
 fi
