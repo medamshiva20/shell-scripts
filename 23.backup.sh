@@ -19,7 +19,7 @@ then
 fi
 
 log(){
-    echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $1" | tee -a $LOG_FILE
+    echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $1"
 }
 
 USAGE(){
