@@ -3,6 +3,9 @@
 USERID=$(id -u)
 SOURCE_DIR=$1
 DEST_DIR=$2
+DAYS={3:-14} # 14 days is the default value, if the user not supplie
+LOGS_DIR="/var/log/shell-script"
+LOG_FILE="$LOGS_DIR/$0.log"
 
 R="\e[31m"
 G="\e[32m"
@@ -10,7 +13,7 @@ Y="\e[33m"
 N="\e[0m"
 
 log(){
-   echo -e "$(date "+%Y-%m-%d %H:%M:%D")"
+   echo -e "$(date "+%Y-%m-%d %H:%M:%D")" | $1
 }
 
 if [ $USERID -ne 0 ] ;
@@ -41,3 +44,7 @@ then
     exit 1
 fi 
 
+log
+log Source directory: $SOURCE_DIR
+log Destination directory: $DEST_DIR
+log Days: $DAYS
