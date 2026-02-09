@@ -9,6 +9,10 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+log(){
+   echo "$(date "+Y-%m-%d" %H:%M:%S")"
+}
+
 if [ $USERID -ne 0 ] ;
 then 
     echo -e "$R Please run this script with root user $N"
@@ -16,7 +20,7 @@ then
 fi
 
 USAGE(){
-    echo "USAGE:: sudo backup <SOURCE-DIR> <DEST-DIR> DAYS(default days 14)"
+    echo -e "$R USAGE:: sudo backup SOURCE_DIR DEST_DIR DAYS (default 14 days) $N"
     exit 1
 }
 
