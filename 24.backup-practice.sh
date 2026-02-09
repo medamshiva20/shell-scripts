@@ -27,10 +27,10 @@ USAGE(){
     exit 1
 }
 
-# if [ $# -lt 2 ] ;
-# then 
-#     USAGE
-# fi
+ if [ $# -lt 2 ] ;
+ then 
+     USAGE
+ fi
 
  if [ ! -d $SOURCE_DIR ] ;
  then
@@ -44,9 +44,38 @@ USAGE(){
      exit 1
  fi 
 
- find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS
+ FILES=$(SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
 
- log "Backup Started"
- log "Source Directory:$SOURCE_DIR"
- log "Destination Directory:$DEST_DIR"
- log "Days:$DAYS"
+log "Backup Started"
+log "Source Directory:$SOURCE_DIR"
+log "Destination Directory:$DEST_DIR"
+log "Days:$DAYS"
+
+ if [ -z $FILES ] ;
+ then 
+    log "No files to archieve ...$Y Skipping $N"
+else
+    log "Files found to archieve: $FILES"
+    TIMESTAMP=$(date +%F:%H:%M:%S)
+    ZIP_FILE_NAME="$DEST_DIR/app-logs/$TIMESTAMP.tar.gz"
+    log "Archieve Name:$ZIP_FILE_NAME"
+    # tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
+ 
+    # #Check archieve success or not 
+    # if [ -z $ZIP_FILE_NAME ] ;
+    # then 
+    #     echo "Archieval is ...$G SUCCESS $N"
+
+    #     while read -r $filepath
+    #     do
+    #         echo Deleting file:$filepath
+    #         rm -f $filepath
+    #         echo "Deleted file:$filepath"
+    #     done <<< $FILES 
+    # else
+    #     echo "Archieval is ...$R FAILURE $N"
+    #     exit 1
+    # fi
+fi
+
+
