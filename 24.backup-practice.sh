@@ -2,14 +2,14 @@
 
 USERID=$(id -u)
 SOURCE_DIR=$1
-DEST-DIR=$2
+DEST_DIR=$2
 
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-if [ $USERID -ne 0] ;
+if [ $USERID -ne 0 ] ;
 then 
     echo -e "$R Please run this script with root user $N"
     exit 1
