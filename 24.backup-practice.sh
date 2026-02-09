@@ -13,7 +13,7 @@ Y="\e[33m"
 N="\e[0m"
 
 log(){
-   echo -e "$(date "+%Y-%m-%d %H:%M:%D")" | $1
+   echo -e "$(date "+%Y-%m-%d %H:%M:%D") | $1"
 }
 
 if [ $USERID -ne 0 ] ;
