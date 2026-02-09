@@ -65,7 +65,7 @@ else
      then 
          echo "Archieval is ...$G SUCCESS $N"
 
-         while IFS= read -r $filepath
+         while IFS= read -r filepath
          do
              log Deleting file: $filepath
              rm -f $filepath
