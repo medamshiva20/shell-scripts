@@ -67,9 +67,9 @@ else
 
          while read -r $filepath
          do
-             echo Deleting file:$filepath
+             echo Deleting file: $filepath
              rm -f $filepath
-             echo "Deleted file:$filepath"
+             echo "Deleted file: $filepath"
          done <<< $FILES 
      else
          echo "Archieval is ...$R FAILURE $N"
