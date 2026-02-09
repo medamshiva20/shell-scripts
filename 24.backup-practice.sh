@@ -27,10 +27,10 @@ USAGE(){
     exit 1
 }
 
-if [ $# -lt 2 ] ;
-then 
-    USAGE
-fi
+# if [ $# -lt 2 ] ;
+# then 
+#     USAGE
+# fi
 
 # if [ ! -d $SOURCE_DIR ] ;
 # then
