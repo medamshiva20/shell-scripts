@@ -10,7 +10,7 @@ Y="\e[33m"
 N="\e[0m"
 
 log(){
-   echo "$(date "+Y-%m-%d" %H:%M:%S")"
+   echo -e "$(date "+%Y-%m-%d %H:%M:%D")"
 }
 
 if [ $USERID -ne 0 ] ;
@@ -40,3 +40,4 @@ then
     echo -e "$R Destination Directory:$DESI_DIR does not exist $N"
     exit 1
 fi 
+
