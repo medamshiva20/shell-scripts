@@ -65,11 +65,11 @@ else
      then 
          echo "Archieval is ...$G SUCCESS $N"
 
-         while read -r $filepath
+         while IFS= read -r $filepath
          do
-             echo Deleting file: $filepath
+             log Deleting file: $filepath
              rm -f $filepath
-             echo "Deleted file: $filepath"
+             log "Deleted file: $filepath"
          done <<< $FILES 
      else
          echo "Archieval is ...$R FAILURE $N"
