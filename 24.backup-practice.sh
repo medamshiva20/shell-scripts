@@ -5,7 +5,7 @@ LOGS_FOLDER="/var/log/shell-script"
 LOGS_FILE="/var/log/shell-script/backup.log"
 R="\e[31m"
 G="\e[32m"
-Y="\e[33m
+Y="\e[33m"
 N="\e[0m"
 
 if [ $USERID -ne 0 ];
@@ -17,7 +17,7 @@ fi
 mkdir -P $LOGS_FOLDER
 
 USAGE(){
-    log "$R USAGE:: sudo backup <SOURCE_DIR> <DEST_DIR> <DAYS>[default 14 days] $N"
+    echo -e "$R USAGE:: sudo backup <SOURCE_DIR> <DEST_DIR> <DAYS>[default 14 days] $N"
     exit 1
 }
 
