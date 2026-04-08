@@ -21,6 +21,7 @@ VALIDATE(){
     if [ $1 -ne 0 ] ;
     then 
         echo -e "$2...$R FAILURE $N" | tee -a $LOG_FILE
+        exit 1
     else
         echo -e "$2...$G SUCCESS $N" | tee -a $LOG_FILE
     fi
@@ -33,7 +34,7 @@ do
     then
         echo "$package not installed, installing now"
         dnf install $package -y &>>$LOG_FILE
-        #ALIDATE $? "$package installation"
+        #VALIDATE $? "$package installation"
     else
         echo -e "$package already installed ...$Y SKIPPING $N"
     fi

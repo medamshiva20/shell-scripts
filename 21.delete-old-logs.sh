@@ -23,4 +23,4 @@ do
     rm -f $filepath
     echo "Deleted file: $filepath"
 done <<< $FILES_TO_DELETE
- 
+  
