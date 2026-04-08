@@ -17,7 +17,7 @@ fi
 mkdir -P $LOGS_FOLDER
 
 USAGE() {
-    echo -e "$R sudo backup '<SOURCE_DIR>' '<DEST_DIR>' '<DAYS>' $N"
+    echo "sudo backup '<SOURCE_DIR>' '<DEST_DIR>' '<DAYS>'"
     exit 1
 }
 
