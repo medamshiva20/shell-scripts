@@ -20,7 +20,7 @@ fi
 mkdir -P $LOGS_FOLDER
 
 log(){
-    echo -e "$(date +%Y-%m-%d %H:%M:%S") | $1"
+    echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $1"
 }
 
 USAGE(){
