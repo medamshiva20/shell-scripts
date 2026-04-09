@@ -7,7 +7,8 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-
+SOURCE_DIR=$1
+DEST_DIR=$2
 if [ $USERID -ne 0 ];
 then 
     echo -e "$R Please run this script with root user $N"
@@ -24,4 +25,16 @@ USAGE(){
 
 if [ $# -lt 2 ]; then
     USAGE
+fi
+
+if [ ! -d $SOURCE_DIR ];
+then 
+    echo -e "$R Source directory :$SOURCE_DIR does not exist $N"
+    exit 1
+fi
+
+if [ ! -d $DEST_DIR ];
+then 
+    echo -e "$R Destination directory :$DEST_DIR does not exist $N"
+    exit 1
 fi
