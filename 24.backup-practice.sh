@@ -49,5 +49,5 @@ FILES=$(find $LOGS_FOLDER -name "*.log" -type f -mtime +$DAYS)
 
 log "Backup started"
 log "Source Directory : $SOURCE_DIR"
-log "Destination Directory: $DESTINATION_DIR"
+log "Destination Directory: $DEST_DIR"
 log "Days: $DAYS"
