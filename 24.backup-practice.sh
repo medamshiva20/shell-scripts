@@ -9,7 +9,7 @@ Y="\e[33m"
 N="\e[0m"
 SOURCE_DIR=$1
 DEST_DIR=$2
-DAYS={3:-14}
+DAYS=${3:-14}
 
 if [ $USERID -ne 0 ];
 then 
@@ -20,7 +20,7 @@ fi
 mkdir -P $LOGS_FOLDER
 
 log(){
-    echo -e "date +%Y-%m-%d %H:%M:%S" | $1 | tee -a $LOGS_FOLDER
+    echo -e "$(date +%Y-%m-%d %H:%M:%S") | $1"
 }
 
 USAGE(){
