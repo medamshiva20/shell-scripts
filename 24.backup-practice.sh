@@ -17,14 +17,14 @@ then
     exit 1
 fi
 
-mkdir -P $LOGS_FOLDER
+mkdir -p $LOGS_FOLDER
 
 log(){
     echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $1"
 }
 
 USAGE(){
-    echo -e "$R USAGE:: sudo backup <SOURCE_DIR> <DEST_DIR> <DAYS>[default 14 days] $N"
+    echo -e "$R USAGE:: sudo backup <SOURCE_DIR> <DEST_DIR> <DAYS> [default 14 days] $N"
     exit 1
 }
 
@@ -45,7 +45,7 @@ then
     exit 1
 fi
 
-FILES=$(find $LOGS_FOLDER -name "*.log" -type f -mtime +$DAYS)
+FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
 
 log "Backup started"
 log "Source Directory : $SOURCE_DIR"
@@ -53,12 +53,12 @@ log "Destination Directory: $DEST_DIR"
 log "Days: $DAYS"
 
 
-if [ -z $FILES ] ;
+if [ -z "${FILES}" ] ;
 then 
     log "No files to archive ... $Y Skipping $N"
 else
     log "Files found to archieve: $FILES"
     TIMESTAMP=$(date +%F-%H-%M-%S)
-    ZIP_FILE_NAME="$DESTINATION_DIR/app-logs-$TIMESTAMP.tar.gz"
+    ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.tar.gz"
         log "Archieve name:$ZIP_FILE_NAME"
 fi
