@@ -24,7 +24,7 @@ log(){
 }
 
 USAGE(){
-    echo -e "$R USAGE:: sudo backup <SOURCE_DIR> <DEST_DIR> <DAYS> [default 14 days] $N"
+    log -e "$R USAGE:: sudo backup <SOURCE_DIR> <DEST_DIR> <DAYS> [default 14 days] $N"
     exit 1
 }
 
@@ -35,13 +35,13 @@ fi
 
 if [ ! -d $SOURCE_DIR ];
 then 
-    echo -e "$R Source directory :$SOURCE_DIR does not exist $N"
+    log -e "$R Source directory :$SOURCE_DIR does not exist $N"
     exit 1
 fi
 
 if [ ! -d $DEST_DIR ];
 then 
-    echo -e "$R Destination directory :$DEST_DIR does not exist $N"
+    log -e "$R Destination directory :$DEST_DIR does not exist $N"
     exit 1
 fi
 
@@ -60,5 +60,18 @@ else
     log "Files found to archieve: $FILES"
     TIMESTAMP=$(date +%F-%H:%M:%S)
     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.tar.gz"
-        log "Archieve name: $ZIP_FILE_NAME"
+    log "Archieve name: $ZIP_FILE_NAME"
+    tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
+if [ -f $ZIP_FILE_NAME ];
+then 
+ log "Archieval is ...$G SUCCESS $N"
+ while IFS= read -r $filepath
+ do
+   log Deleting file: $filepath
+   rm -rf $filepath
+   log Deleted file: $filepath
+ done <<< $FILE
+ else
+   log "Archieval is ...$R FAILURE $N"
+ fi
 fi
