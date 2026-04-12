@@ -62,16 +62,17 @@ else
     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.tar.gz"
     log "Archieve name: $ZIP_FILE_NAME"
     tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
-if [ -f $ZIP_FILE_NAME ];
-then 
- log "Archieval is ...$G SUCCESS $N"
- while IFS= read -r filepath
- do
-   log Deleting file: $filepath
-   rm -rf $filepath
-   log Deleted file: $filepath
- done <<< $FILE
- else
-   log "Archieval is ...$R FAILURE $N"
- fi
+  if [ -f "$ZIP_FILE_NAME" ]; then 
+    log "Archieval is ...$G SUCCESS $N"
+
+    while IFS= read -r filepath
+    do
+        log "Deleting file: $filepath"
+        rm -f "$filepath"
+        log "Deleted file: $filepath"
+    done <<< "$FILES"
+
+  else
+    log "Archieval is ...$R FAILURE $N"
+  fi
 fi
