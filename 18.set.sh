@@ -3,7 +3,7 @@
 USERID=$(id -u)
 LOGS_DIR="/var/log/shell-script"
 LOG_FILE="$LOGS_DIR/$0.log"
-set -e #This will be checking for errors ,if errors it will exit
+#set -e #This will be checking for errors ,if errors it will exit
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -17,15 +17,15 @@ fi
 
 mkdir -p $LOGS_DIR
 
-# VALIDATE(){
-#     if [ $1 -ne 0 ] ;
-#     then 
-#         echo -e "$2...$R FAILURE $N" | tee -a $LOG_FILE
-#         exit 1
-#     else
-#         echo -e "$2...$G SUCCESS $N" | tee -a $LOG_FILE
-#     fi
-# }
+VALIDATE(){
+    if [ $1 -ne 0 ] ;
+    then 
+        echo -e "$2...$R FAILURE $N" | tee -a $LOG_FILE
+        exit 1
+    else
+        echo -e "$2...$G SUCCESS $N" | tee -a $LOG_FILE
+    fi
+}
 
 for package in $@
 do
@@ -34,7 +34,7 @@ do
     then
         echo "$package not installed, installing now"
         dnf install $package -y &>>$LOG_FILE
-        #VALIDATE $? "$package installation"
+        VALIDATE $? "$package installation"
     else
         echo -e "$package already installed ...$Y SKIPPING $N"
     fi
