@@ -3,7 +3,7 @@
 USERID=$(id -u)
 LOGS_DIR="/var/log/shell-script"
 LOG_FILE="$LOGS_DIR/$0.log"
-#set -e #This will be checking for errors ,if errors it will exit
+set -e #This will be checking for errors ,if errors it will exit
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
