@@ -32,7 +32,7 @@ do
     if [ $? -ne 0 ]; then
         echo "$package not installed, installing now"
         dnf install $package -y &>>$LOGS_FILE
-        #VALIDATE $? "$package installation"
+        VALIDATE $? "$package installation"
     else
         echo -e "$package already installed ... $Y SKIPPING $N"
     fi
